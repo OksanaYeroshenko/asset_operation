@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_asset_operation,asset.operation,model_asset_operation,group_asset_custodian,1,1,1,1
+access_asset_operation_wizard,asset.operation.wizard,model_asset_operation_wizard,group_asset_custodian,1,1,1,0
+access_account_asset_custodian,account.asset custodian,account_asset.model_account_asset,group_asset_custodian,1,0,0,0

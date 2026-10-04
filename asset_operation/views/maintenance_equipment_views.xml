@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_maintenance_equipment_form_asset" model="ir.ui.view">
+        <field name="name">maintenance.equipment.form.asset</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <form>
+                <header groups="asset_operation.group_asset_custodian">
+                    <button name="%(action_asset_operation_wizard_assign)d" string="Assign to Employee" type="action"
+                            class="oe_highlight" context="{'default_equipment_id': id}" invisible="employee_id"/>
+                    <button name="%(action_asset_operation_wizard_return)d" string="Unassign" type="action"
+                            class="oe_highlight" context="{'default_equipment_id': id}" invisible="not employee_id"/>
+                </header>
+                <sheet>
+                    <widget name="web_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active"/>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1><field name="name" placeholder="e.g. LED Monitor"/></h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="active" invisible="1"/>
+                            <field name="category_id" options="{'no_open': True}"
+                                   context="{'default_company_id': company_id}"/>
+                            <field name="company_id" groups="base.group_multi_company" options="{'no_create': True}"/>
+                            <field name="employee_id" widget="many2one_avatar_employee" readonly="1"/>
+                            <field name="department_id" readonly="1" invisible="not department_id"/>
+                        </group>
+                        <group>
+                            <field name="assign_date" readonly="1"/>
+                            <field name="location" string="Used in location"/>
+                            <field name="account_asset_id"/>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="book_value" invisible="not account_asset_id"/>
+                        </group>
+                    </group>
+                    <field name="equipment_properties" nolabel="1" columns="2"/>
+                    <notebook>
+                        <page string="History" name="operations" groups="asset_operation.group_asset_custodian">
+                            <field name="operation_ids" readonly="1">
+                                <list>
+                                    <field name="employee_id" widget="many2one_avatar_employee"/>
+                                    <field name="type" widget="badge" decoration-success="type == 'assignation'"
+                                           decoration-info="type == 'return'"/>
+                                    <field name="date"/>
+                                    <field name="days_in_use"/>
+                                    <button name="action_preview_act" type="object" icon="fa-file-pdf-o" title="Act"
+                                            invisible="sign_state != 'signed' and not paper_act"/>
+                                    <field name="sign_state" column_invisible="1"/>
+                                    <field name="paper_act" column_invisible="1"/>
+                                </list>
+                            </field>
+                        </page>
+                        <page string="Description" name="description">
+                            <field name="note"/>
+                        </page>
+                        <page string="Product Information" name="product_information">
+                            <group>
+                                <group>
+                                    <field name="partner_id"/>
+                                    <field name="partner_ref"/>
+                                </group>
+                                <group>
+                                    <field name="model"/>
+                                    <field name="serial_no"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_asset_equipment" model="ir.actions.act_window">
+        <field name="name">Assets</field>
+        <field name="res_model">maintenance.equipment</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="search_view_id" ref="maintenance.hr_equipment_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Add a new asset
+            </p><p>
+                Hand assets over to employees and take them back, keeping the whole history.
+            </p>
+        </field>
+    </record>
+
+    <record id="action_asset_equipment_view_kanban" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_asset_equipment"/>
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="maintenance.hr_equipment_view_kanban"/>
+    </record>
+
+    <record id="action_asset_equipment_view_list" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_asset_equipment"/>
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">list</field>
+        <field name="view_id" ref="maintenance.hr_equipment_view_tree"/>
+    </record>
+
+    <record id="action_asset_equipment_view_form" model="ir.actions.act_window.view">
+        <field name="act_window_id" ref="action_asset_equipment"/>
+        <field name="sequence" eval="3"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_maintenance_equipment_form_asset"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_asset_operation_wizard_form" model="ir.ui.view">
+        <field name="name">asset.operation.wizard.form</field>
+        <field name="model">asset.operation.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="type" invisible="1"/>
+                    <field name="equipment_id"/>
+                    <field name="employee_id" widget="many2one_avatar_employee" invisible="type != 'assignation'"
+                           required="type == 'assignation'"/>
+                    <field name="date"/>
+                </group>
+                <footer>
+                    <button name="action_confirm" string="Assign" type="object" class="btn-primary"
+                            invisible="type != 'assignation'" data-hotkey="q"/>
+                    <button name="action_confirm" string="Unassign" type="object" class="btn-primary"
+                            invisible="type != 'return'" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="x"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_asset_operation_wizard_assign" model="ir.actions.act_window">
+        <field name="name">Assign to Employee</field>
+        <field name="res_model">asset.operation.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_type': 'assignation'}</field>
+    </record>
+
+    <record id="action_asset_operation_wizard_return" model="ir.actions.act_window">
+        <field name="name">Return from Employee</field>
+        <field name="res_model">asset.operation.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_type': 'return'}</field>
+    </record>
+
+</odoo>

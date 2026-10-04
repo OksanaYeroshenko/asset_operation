@@ -1,0 +1,544 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* asset_operation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-04 16:00+0000\n"
+"PO-Revision-Date: 2026-10-02 10:05+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: asset_operation
+#. odoo-python
+#: code:addons/asset_operation/models/asset_operation.py:0
+msgid "%(asset)s is already assigned to %(employee)s on this date."
+msgstr "%(asset)s на цю дату вже видано співробітнику %(employee)s."
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_form
+msgid "<span class=\"o_stat_text\">Act</span>"
+msgstr "<span class=\"o_stat_text\">Акт</span>"
+
+#. module: asset_operation
+#. odoo-python
+#: code:addons/asset_operation/models/asset_operation.py:0
+msgid "A return needs the assignation it closes."
+msgstr "Повернення має посилатися на видачу, яку воно закриває."
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "Accepted by: ____________________"
+msgstr "Прийняв: ____________________"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_maintenance_equipment__account_asset_id
+msgid "Accounting Asset"
+msgstr "ОЗ у бухобліку"
+
+#. module: asset_operation
+#: model:ir.actions.report,name:asset_operation.action_report_asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_maintenance_equipment_form_asset
+msgid "Act"
+msgstr "Акт"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__act_pdf
+msgid "Act PDF"
+msgstr "PDF акта"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_needaction
+msgid "Action Needed"
+msgstr "Необхідна дія"
+
+#. module: asset_operation
+#: model_terms:ir.actions.act_window,help:asset_operation.action_asset_equipment
+msgid "Add a new asset"
+msgstr "Додайте новий основний засіб"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_maintenance_equipment_form_asset
+msgid "Archived"
+msgstr "Заархівовано"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__equipment_id
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__equipment_id
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "Asset"
+msgstr "Основний засіб"
+
+#. module: asset_operation
+#. odoo-python
+#: code:addons/asset_operation/models/asset_operation.py:0
+msgid "Asset Assignation Act No. %s"
+msgstr "Акт видачі ОЗ № %s"
+
+#. module: asset_operation
+#: model:res.groups,name:asset_operation.group_asset_custodian
+msgid "Asset Custodian"
+msgstr "Відповідальний за ОЗ"
+
+#. module: asset_operation
+#: model:ir.model,name:asset_operation.model_asset_operation
+msgid "Asset Operation"
+msgstr "Операція з ОЗ"
+
+#. module: asset_operation
+#. odoo-python
+#: code:addons/asset_operation/models/asset_operation.py:0
+msgid "Asset Return Act No. %s"
+msgstr "Акт повернення ОЗ № %s"
+
+#. module: asset_operation
+#: model:ir.actions.act_window,name:asset_operation.action_asset_equipment
+#: model:ir.ui.menu,name:asset_operation.menu_asset_equipment
+msgid "Assets"
+msgstr "Основні засоби"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_wizard_form
+msgid "Assign"
+msgstr "Видано"
+
+#. module: asset_operation
+#: model:ir.model,name:asset_operation.model_asset_operation_wizard
+msgid "Assign or Return an Asset"
+msgstr "Видача або повернення ОЗ"
+
+#. module: asset_operation
+#: model:ir.actions.act_window,name:asset_operation.action_asset_operation_wizard_assign
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_maintenance_equipment_form_asset
+msgid "Assign to Employee"
+msgstr "Видати співробітнику"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__assignation_id
+#: model:ir.model.fields.selection,name:asset_operation.selection__asset_operation__type__assignation
+#: model:ir.model.fields.selection,name:asset_operation.selection__asset_operation_wizard__type__assignation
+msgid "Assignation"
+msgstr "Видача"
+
+#. module: asset_operation
+#: model:ir.actions.act_window,name:asset_operation.action_asset_operation
+#: model:ir.ui.menu,name:asset_operation.menu_asset_operation
+msgid "Assignation History"
+msgstr "Історія видачі ОЗ"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "Assignations"
+msgstr "Видачі"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_attachment_count
+msgid "Attachment Count"
+msgstr "Підрахунок прикріплення"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_maintenance_equipment__book_value
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "Book Value"
+msgstr "Залишкова вартість"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_wizard_form
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "Category"
+msgstr "Категорія"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__company_id
+msgid "Company"
+msgstr "Компанія"
+
+#. module: asset_operation
+#: model:ir.ui.menu,name:asset_operation.menu_asset_configuration
+msgid "Configuration"
+msgstr "Налаштування"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__create_uid
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__create_uid
+msgid "Created by"
+msgstr "Створив"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__create_date
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__create_date
+msgid "Created on"
+msgstr "Створено"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_maintenance_equipment__currency_id
+msgid "Currency"
+msgstr "Валюта"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__date
+msgid "Date"
+msgstr "Дата"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__days_in_use
+msgid "Days in Use"
+msgstr "Днів у користуванні"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__department_id
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "Department"
+msgstr "Відділ"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "Department:"
+msgstr "Відділ:"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_maintenance_equipment_form_asset
+msgid "Description"
+msgstr "Опис"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__display_name
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__display_name
+msgid "Display Name"
+msgstr "Назва для відображення"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__sign_state
+msgid "E-Signature"
+msgstr "Е-підпис"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__sign_request_id
+msgid "E-Signature Request"
+msgstr "Запит на е-підпис"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__employee_id
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__employee_id
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "Employee"
+msgstr "Співробітник"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "Employee:"
+msgstr "Співробітник:"
+
+#. module: asset_operation
+#: model:ir.ui.menu,name:asset_operation.menu_asset_category
+msgid "Equipment Categories"
+msgstr "Категорії ОЗ"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__category_id
+msgid "Equipment Category"
+msgstr "Категорія ОЗ"
+
+#. module: asset_operation
+#: model:ir.ui.menu,name:asset_operation.menu_asset_root
+msgid "Fixed Assets"
+msgstr "Основні засоби"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_follower_ids
+msgid "Followers"
+msgstr "Підписники"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Підписники (Партнери)"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "Group By"
+msgstr "Групувати за"
+
+#. module: asset_operation
+#: model_terms:ir.actions.act_window,help:asset_operation.action_asset_equipment
+msgid "Hand assets over to employees and take them back, keeping the whole history."
+msgstr "Видавайте основні засоби співробітникам і приймайте їх назад, зберігаючи всю історію."
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "Handed over by: ____________________"
+msgstr "Видав: ____________________"
+
+#. module: asset_operation
+#: model:res.groups,comment:asset_operation.group_asset_custodian
+msgid "Hands assets over to employees and takes them back, keeping the history."
+msgstr "Видає ОЗ співробітникам і приймає їх назад, ведучи історію видачі."
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__has_message
+msgid "Has Message"
+msgstr "Є повідомлення"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_maintenance_equipment_form_asset
+msgid "History"
+msgstr "Історія"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__id
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__id
+msgid "ID"
+msgstr "ID"
+
+#. module: asset_operation
+#: model:ir.model.fields,help:asset_operation.field_asset_operation__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Якщо позначено, то нові повідомлення будуть потребувати вашої уваги."
+
+#. module: asset_operation
+#: model:ir.model.fields,help:asset_operation.field_asset_operation__message_has_error
+#: model:ir.model.fields,help:asset_operation.field_asset_operation__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Якщо позначено, деякі повідомлення мають помилку доставки."
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "In Use"
+msgstr "У користуванні"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_is_follower
+msgid "Is Follower"
+msgstr "Стежить"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "Job Position:"
+msgstr "Посада:"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__write_uid
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Востаннє оновив"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__write_date
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__write_date
+msgid "Last Updated on"
+msgstr "Останнє оновлення"
+
+#. module: asset_operation
+#: model:ir.model,name:asset_operation.model_maintenance_equipment
+msgid "Maintenance Equipment"
+msgstr "Обладнання"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_has_error
+msgid "Message Delivery error"
+msgstr "Помилка доставлення повідомлення"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_ids
+msgid "Messages"
+msgstr "Повідомлення"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__model
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "Model"
+msgstr "Модель"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Кількість дій"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_has_error_counter
+msgid "Number of errors"
+msgstr "Кількість помилок"
+
+#. module: asset_operation
+#: model:ir.model.fields,help:asset_operation.field_asset_operation__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Кількість повідомлень, які вимагають дії"
+
+#. module: asset_operation
+#: model:ir.model.fields,help:asset_operation.field_asset_operation__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Кількість повідомлень з помилковою доставкою"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__date
+msgid "Operation Date"
+msgstr "Дата операції"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_maintenance_equipment__operation_ids
+msgid "Operations"
+msgstr "Операції"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__paper_act_filename
+msgid "Paper Act Filename"
+msgstr "Назва файлу паперового акта"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__paper_act
+msgid "Paper-Signed Act"
+msgstr "Акт, підписаний на папері"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_list
+msgid "Preview Act"
+msgstr "Переглянути акт"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_form
+msgid "Print Act"
+msgstr "Друк акта"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_maintenance_equipment_form_asset
+msgid "Product Information"
+msgstr "Інформація про товар"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "Received by: ____________________"
+msgstr "Отримав: ____________________"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__return_ids
+#: model:ir.model.fields.selection,name:asset_operation.selection__asset_operation__type__return
+#: model:ir.model.fields.selection,name:asset_operation.selection__asset_operation_wizard__type__return
+msgid "Return"
+msgstr "Повернення"
+
+#. module: asset_operation
+#: model:ir.actions.act_window,name:asset_operation.action_asset_operation_wizard_return
+msgid "Return from Employee"
+msgstr "Повернути від співробітника"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__is_returned
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_form
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_kanban
+msgid "Returned"
+msgstr "Повернено"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "Returned by: ____________________"
+msgstr "Здав: ____________________"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "Returns"
+msgstr "Повернення"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr "Помилка доставки SMS"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_form
+msgid "Send Act for E-Signature"
+msgstr "Надіслати акт на е-підпис"
+
+#. module: asset_operation
+#. odoo-python
+#: code:addons/asset_operation/models/asset_operation.py:0
+msgid "Send for E-Signature"
+msgstr "Надіслати на е-підпис"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__serial_no
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "Serial Number"
+msgstr "Серійний номер"
+
+#. module: asset_operation
+#: model:ir.model,name:asset_operation.model_sign_send_request
+msgid "Sign send request"
+msgstr "Надсилання запиту на підпис"
+
+#. module: asset_operation
+#: model:ir.model.fields,help:asset_operation.field_maintenance_equipment__book_value
+msgid "Sum of the depreciable value, the salvage value and the book value of all value increase items"
+msgstr "Сума амортизованої вартості, вартості відшкодування та балансової вартості всіх елементів збільшення вартості"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "The asset listed above has been handed over to the employee for use."
+msgstr "Зазначений вище основний засіб передано співробітнику в користування."
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.report_asset_operation
+msgid "The asset listed above has been returned by the employee."
+msgstr "Зазначений вище основний засіб повернуто співробітником."
+
+#. module: asset_operation
+#. odoo-python
+#: code:addons/asset_operation/models/asset_operation.py:0
+msgid "The return date cannot be earlier than the assignation date."
+msgstr "Дата повернення не може бути раніше дати видачі."
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__type
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation_wizard__type
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_search
+msgid "Type"
+msgstr "Тип"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_wizard_form
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_maintenance_equipment_form_asset
+msgid "Unassign"
+msgstr "Повернути"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_maintenance_equipment_form_asset
+msgid "Used in location"
+msgstr "Місце використання"
+
+#. module: asset_operation
+#: model:ir.model.fields,field_description:asset_operation.field_asset_operation__website_message_ids
+msgid "Website Messages"
+msgstr "Повідомлення з веб-сайту"
+
+#. module: asset_operation
+#: model:ir.model.fields,help:asset_operation.field_asset_operation__website_message_ids
+msgid "Website communication history"
+msgstr "Історія бесіди на сайті"
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_asset_operation_kanban
+msgid "days"
+msgstr "дн."
+
+#. module: asset_operation
+#: model_terms:ir.ui.view,arch_db:asset_operation.view_maintenance_equipment_form_asset
+msgid "e.g. LED Monitor"
+msgstr "напр., LED монітор"
+
+#. module: asset_operation
+#: model:ir.actions.report,print_report_name:asset_operation.action_report_asset_operation
+msgid "object._get_act_name()"
+msgstr ""

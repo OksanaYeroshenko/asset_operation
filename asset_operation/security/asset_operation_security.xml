@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_asset_custodian" model="res.groups">
+        <field name="name">Asset Custodian</field>
+        <field name="category_id" ref="base.module_category_human_resources_employees"/>
+        <field name="implied_ids"
+               eval="[(4, ref('maintenance.group_equipment_manager')), (4, ref('sign.group_sign_user'))]"/>
+        <field name="users" eval="[(4, ref('base.user_admin'))]"/>
+        <field name="comment">Hands assets over to employees and takes them back, keeping the history.</field>
+    </record>
+
+    <record id="asset_operation_company_rule" model="ir.rule">
+        <field name="name">Asset Operation: multi-company</field>
+        <field name="model_id" ref="model_asset_operation"/>
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+</odoo>

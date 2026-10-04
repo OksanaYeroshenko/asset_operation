@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_asset_operation_list" model="ir.ui.view">
+        <field name="name">asset.operation.list</field>
+        <field name="model">asset.operation</field>
+        <field name="arch" type="xml">
+            <list create="0">
+                <field name="equipment_id"/>
+                <field name="category_id" optional="show"/>
+                <field name="model" optional="hide"/>
+                <field name="serial_no" optional="hide"/>
+                <field name="employee_id" widget="many2one_avatar_employee"/>
+                <field name="department_id" optional="show"/>
+                <field name="type" widget="badge" decoration-success="type == 'assignation'"
+                       decoration-info="type == 'return'"/>
+                <field name="date"/>
+                <field name="days_in_use"/>
+                <field name="is_returned" optional="hide"/>
+                <field name="sign_state" widget="badge" decoration-success="sign_state == 'signed'"
+                       decoration-info="sign_state == 'sent'"/>
+                <button name="action_preview_act" type="object" icon="fa-eye" title="Preview Act"
+                        invisible="not sign_request_id and not paper_act"/>
+                <field name="sign_request_id" column_invisible="1"/>
+                <field name="paper_act" column_invisible="1"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_asset_operation_form" model="ir.ui.view">
+        <field name="name">asset.operation.form</field>
+        <field name="model">asset.operation</field>
+        <field name="arch" type="xml">
+            <form create="0">
+                <header>
+                    <button name="%(action_report_asset_operation)d" string="Print Act" type="action"/>
+                    <button name="action_send_sign_request" string="Send Act for E-Signature" type="object"
+                            invisible="sign_state in ('sent', 'signed') or paper_act"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_preview_act" type="object" class="oe_stat_button"
+                                icon="fa-pencil-square-o" invisible="not sign_request_id and not paper_act">
+                            <div class="o_stat_info">
+                                <span class="o_stat_value"><field name="sign_state"/></span>
+                                <span class="o_stat_text">Act</span>
+                            </div>
+                        </button>
+                    </div>
+                    <widget name="web_ribbon" title="Returned" bg_color="text-bg-success" invisible="not is_returned"/>
+                    <field name="sign_request_id" invisible="1"/>
+                    <field name="is_returned" invisible="1"/>
+                    <group>
+                        <group>
+                            <field name="type" readonly="1"/>
+                            <field name="equipment_id" readonly="1"/>
+                            <field name="category_id"/>
+                            <field name="model"/>
+                            <field name="serial_no"/>
+                        </group>
+                        <group>
+                            <field name="employee_id" widget="many2one_avatar_employee" readonly="1"/>
+                            <field name="department_id"/>
+                            <field name="date" readonly="1"/>
+                            <field name="assignation_id" readonly="1" invisible="type != 'return'"/>
+                            <field name="days_in_use"/>
+                            <field name="paper_act" filename="paper_act_filename"
+                                   options="{'accepted_file_extensions': '.pdf'}"/>
+                            <field name="paper_act_filename" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_asset_operation_form_act" model="ir.ui.view">
+        <field name="name">asset.operation.form.act</field>
+        <field name="model">asset.operation</field>
+        <field name="priority">100</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0" delete="0">
+                <field name="act_pdf" widget="pdf_viewer" nolabel="1"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_asset_operation_kanban" model="ir.ui.view">
+        <field name="name">asset.operation.kanban</field>
+        <field name="model">asset.operation</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="employee_id" create="0" records_draggable="false" groups_draggable="false"
+                    group_create="false" group_edit="false" group_delete="false">
+                <field name="is_returned"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <field name="equipment_id" class="fw-bold fs-5"/>
+                            <field name="type" widget="badge" decoration-success="type == 'assignation'"
+                                   decoration-info="type == 'return'"/>
+                        </div>
+                        <field name="category_id" class="text-muted"/>
+                        <field name="model" class="text-muted"/>
+                        <field name="employee_id"/>
+                        <div>
+                            <field name="date"/>
+                            <span t-if="record.is_returned.raw_value" class="badge text-bg-secondary ms-2">
+                                Returned
+                            </span>
+                        </div>
+                        <footer>
+                            <span><field name="days_in_use"/> days</span>
+                            <field name="employee_id" widget="many2one_avatar_employee" class="ms-auto"/>
+                        </footer>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_asset_operation_search" model="ir.ui.view">
+        <field name="name">asset.operation.search</field>
+        <field name="model">asset.operation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="equipment_id"/>
+                <field name="employee_id"/>
+                <field name="category_id"/>
+                <field name="department_id"/>
+                <filter string="Assignations" name="assignations" domain="[('type', '=', 'assignation')]"/>
+                <filter string="Returns" name="returns" domain="[('type', '=', 'return')]"/>
+                <separator/>
+                <filter string="In Use" name="in_use"
+                        domain="[('type', '=', 'assignation'), ('is_returned', '=', False)]"/>
+                <group expand="0" string="Group By">
+                    <filter string="Asset" name="group_by_equipment" context="{'group_by': 'equipment_id'}"/>
+                    <filter string="Category" name="group_by_category" context="{'group_by': 'category_id'}"/>
+                    <filter string="Model" name="group_by_model" context="{'group_by': 'model'}"/>
+                    <filter string="Employee" name="group_by_employee" context="{'group_by': 'employee_id'}"/>
+                    <filter string="Department" name="group_by_department" context="{'group_by': 'department_id'}"/>
+                    <filter string="Type" name="group_by_type" context="{'group_by': 'type'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_asset_operation" model="ir.actions.act_window">
+        <field name="name">Assignation History</field>
+        <field name="res_model">asset.operation</field>
+        <field name="view_mode">kanban,list,form</field>
+    </record>
+
+    <menuitem id="menu_asset_root" name="Fixed Assets" sequence="165" groups="group_asset_custodian"
+              web_icon="account_asset,static/description/icon.png"/>
+    <menuitem id="menu_asset_equipment" parent="menu_asset_root" action="action_asset_equipment" sequence="1"/>
+    <menuitem id="menu_asset_operation" parent="menu_asset_root" action="action_asset_operation" sequence="2"/>
+    <menuitem id="menu_asset_configuration" name="Configuration" parent="menu_asset_root" sequence="100"/>
+    <menuitem id="menu_asset_category" parent="menu_asset_configuration"
+              action="maintenance.hr_equipment_category_action"/>
+
+</odoo>

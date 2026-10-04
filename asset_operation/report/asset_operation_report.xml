@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_report_asset_operation" model="ir.actions.report">
+        <field name="name">Act</field>
+        <field name="model">asset.operation</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">asset_operation.report_asset_operation</field>
+        <field name="print_report_name">object._get_act_name()</field>
+        <field name="binding_model_id" ref="model_asset_operation"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <template id="report_asset_operation">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <div style="min-height: 120mm">
+                            <h2 class="text-center" t-out="o._get_act_name()"/>
+                            <p class="text-center"><span t-field="o.date"/></p>
+                            <div class="row mt-4">
+                                <div class="col-3 fw-bold">Employee:</div>
+                                <div class="col-9"><span t-field="o.employee_id.name"/></div>
+                            </div>
+                            <div class="row" t-if="o.employee_id.job_title">
+                                <div class="col-3 fw-bold">Job Position:</div>
+                                <div class="col-9"><span t-field="o.employee_id.job_title"/></div>
+                            </div>
+                            <div class="row" t-if="o.department_id">
+                                <div class="col-3 fw-bold">Department:</div>
+                                <div class="col-9"><span t-field="o.department_id.name"/></div>
+                            </div>
+                            <table class="table table-borderless mt-4">
+                                <thead>
+                                    <tr>
+                                        <th>Asset</th>
+                                        <th>Category</th>
+                                        <th>Model</th>
+                                        <th>Serial Number</th>
+                                        <th class="text-end">Book Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span t-field="o.equipment_id.name"/></td>
+                                        <td><span t-field="o.category_id.name"/></td>
+                                        <td><span t-field="o.model"/></td>
+                                        <td><span t-field="o.serial_no"/></td>
+                                        <td class="text-end">
+                                            <span t-if="o.equipment_id.account_asset_id"
+                                                  t-field="o.equipment_id.book_value"/>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p t-if="o.type == 'assignation'">
+                                The asset listed above has been handed over to the employee for use.
+                            </p>
+                            <p t-else="">The asset listed above has been returned by the employee.</p>
+                        </div>
+                        <div class="row mt-5" t-if="o.type == 'assignation'">
+                            <div class="col-6">Handed over by: ____________________</div>
+                            <div class="col-6">Received by: ____________________</div>
+                        </div>
+                        <div class="row mt-5" t-else="">
+                            <div class="col-6">Returned by: ____________________</div>
+                            <div class="col-6">Accepted by: ____________________</div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
